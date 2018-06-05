@@ -154,6 +154,7 @@
     <Compile Include="Models\LogObject.cs" />
     <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\MessageTypeEnum.cs" />
+    <Compile Include="Models\RemoveHandlerModel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\ThumbnailPic.cs" />
@@ -177,6 +178,8 @@
     <Content Include="Views\First\AjaxView.cshtml" />
     <Content Include="scripts\jquery-3.0.0.min.map" />
     <Content Include="scripts\jquery-3.0.0.slim.min.map" />
+    <Content Include="Views\First\Configurations.cshtml" />
+    <Content Include="Views\First\RemoveHandler.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

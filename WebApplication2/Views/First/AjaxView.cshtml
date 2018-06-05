@@ -26,7 +26,7 @@
         @foreach (var s in Model.students)
         {
         <tr>
-            <td>@Html.DisplayFor(modelitem => s.ID)</td>
+            <td><p type="text" id="id" size="5">@Html.DisplayFor(modelitem => s.ID)</td>
             <td><p type="text" id="firstName" size="5">@Html.DisplayFor(modelitem => s.FirstName)</p></td>
             <td><p type="text" id="lastName" size="5">@Html.DisplayFor(modelitem => s.LastName)</p></td>
         </tr>
