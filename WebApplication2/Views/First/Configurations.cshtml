@@ -1,0 +1,21 @@
+﻿@model ConfigModel
+
+@{
+    ViewBag.Title = "Configurations";
+}
+
+<h2>Config</h2>
+
+<p>Source name : @Model.sourceName</p>
+<p>Thumbnail size : @Model.thumbnailSize</p>
+<p>Output dir : @Model.outputDir</p>
+<p>Log name : @Model.logName</p>
+
+<lu>
+    @foreach (var path in Model.handlers)
+    {
+        <li>
+            @Html.ActionLink(path, "removeQuery", new { handler = path })
+        </li>
+    }
+</lu>

@@ -10,7 +10,9 @@ namespace WebApplication2
 {
     public class FirstController : Controller
     {
-       static MainPageModel mainPage = new MainPageModel();
+       static MainPageModel mainPage= new MainPageModel();
+       public static ConfigModel configModel = new ConfigModel();
+       public static RemoveHandlerModel rmvHandlerModel = new RemoveHandlerModel();
 
         // GET: First
         public ActionResult Index()
@@ -24,14 +26,29 @@ namespace WebApplication2
             return View(mainPage);
         }
 
-
-        // GET: First/Create
-        public ActionResult Create()
+        [HttpGet]
+        public ActionResult Configurations()
         {
-            return View();
+            return View(configModel);
         }
 
-        // POST: First/Create
+
+        [HttpPost]
+        public ActionResult removeQuery(string handler)
+        {
+            rmvHandlerModel.handler = handler;
+            return View(rmvHandlerModel);
+        }
+
+        [HttpPost]
+        public void handlerRemoved(string handler)
+        {
+            string[] args = { handler };
+            CommandRecievedEventArgs msg = new CommandRecievedEventArgs((int)CommandEnum.CloseHandler, args);
+            ClientSingleton.Instance.sendmessage(message1.ToJSON());
+        }
+
+        /// POST: First/Create
         [HttpPost]
         public ActionResult Create(Student st)
         {
