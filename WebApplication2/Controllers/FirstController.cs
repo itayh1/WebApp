@@ -48,7 +48,7 @@ namespace WebApplication2
             ClientSingleton.Instance.sendmessage(message1.ToJSON());
         }
 
-        // POST: First/Create
+        /// POST: First/Create
         [HttpPost]
         public ActionResult Create(Student st)
         {
