@@ -146,6 +146,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ClientConn.cs" />
+    <Compile Include="Commands\CommandEnum.cs" />
+    <Compile Include="Commands\CommandRecievedEventArgs.cs" />
+    <Compile Include="ConfigurationData.cs" />
     <Compile Include="Controllers\FirstController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,6 +159,7 @@
     <Compile Include="Models\LogsModel.cs" />
     <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\MessageTypeEnum.cs" />
+    <Compile Include="Models\PicsModel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\ThumbnailPic.cs" />
