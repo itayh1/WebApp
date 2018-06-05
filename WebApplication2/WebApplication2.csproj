@@ -150,7 +150,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConfigModel.cs" />
     <Compile Include="Models\LogObject.cs" />
+    <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\MessageTypeEnum.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -196,7 +198,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>33438</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -4,20 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication2.Models;
+using WebApplication2;
 
-namespace WebApplication2.Controllers
+namespace WebApplication2
 {
     public class FirstController : Controller
     {
-        static List<Employee> employees = new List<Employee>()
-        {
-          new Employee  { FirstName = "Moshe", LastName = "Aron", Email = "Stam@stam", Salary = 10000, Phone = "08-8888888" },
-          new Employee  { FirstName = "Dor", LastName = "Nisim", Email = "Stam@stam", Salary = 2000, Phone = "08-8888888" },
-          new Employee   { FirstName = "Mor", LastName = "Sinai", Email = "Stam@stam", Salary = 500, Phone = "08-8888888" },
-          new Employee   { FirstName = "Dor", LastName = "Nisim", Email = "Stam@stam", Salary = 20, Phone = "08-8888888" },
-          new Employee   { FirstName = "Dor", LastName = "Nisim", Email = "Stam@stam", Salary = 700, Phone = "08-8888888" }
-        };
+       static MainPageModel mainPage= new MainPageModel();
+
         // GET: First
         public ActionResult Index()
         {
@@ -27,40 +21,9 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public ActionResult AjaxView()
         {
-            return View();
+            return View(mainPage);
         }
 
-        [HttpGet]
-        public JObject GetEmployee()
-        {
-            JObject data = new JObject();
-            data["FirstName"] = "Kuky";
-            data["LastName"] = "Mopy";
-            return data;
-        }
-
-        [HttpPost]
-        public JObject GetEmployee(string name, int salary)
-        {
-            foreach (var empl in employees)
-            {
-                if (empl.Salary > salary || name.Equals(name))
-                {
-                    JObject data = new JObject();
-                    data["FirstName"] = empl.FirstName;
-                    data["LastName"] = empl.LastName;
-                    data["Salary"] = empl.Salary;
-                    return data;
-                }
-            }
-            return null;
-        }
-
-        // GET: First/Details
-        public ActionResult Details()
-        {
-            return View(employees);
-        }
 
         // GET: First/Create
         public ActionResult Create()
@@ -70,67 +33,67 @@ namespace WebApplication2.Controllers
 
         // POST: First/Create
         [HttpPost]
-        public ActionResult Create(Employee emp)
+        public ActionResult Create(Student st)
         {
-            try
-            {
-                employees.Add(emp);
+            //try
+            //{
+            //    employees.Add(emp);
 
-                return RedirectToAction("Details");
-            }
-            catch
-            {
-                return View();
-            }
+            //    return RedirectToAction("Details");
+            //}
+            //catch
+            //{
+            return View();
+            //}
         }
 
         // GET: First/Edit/5
         public ActionResult Edit(int id)
         {
-            foreach (Employee emp in employees) {
-                if (emp.ID.Equals(id)) { 
-                    return View(emp);
-                }
-            }
+            //foreach (Employee emp in employees) {
+            //    if (emp.ID.Equals(id)) { 
+            //        return View(emp);
+            //    }
+            //}
             return View("Error");
         }
 
         // POST: First/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Employee empT)
+        public ActionResult Edit(int id, Student st)
         {
-            try
-            {
-                foreach (Employee emp in employees)
-                {
-                    if (emp.ID.Equals(id))
-                    {
-                        emp.copy(empT);
-                        return RedirectToAction("Index");
-                    }
-                }
+            //try
+            //{
+            //    foreach (Employee emp in employees)
+            //    {
+            //        if (emp.ID.Equals(id))
+            //        {
+            //            emp.copy(empT);
+            //            return RedirectToAction("Index");
+            //        }
+            //    }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return RedirectToAction("Error");
-            }
+            return RedirectToAction("Index");
+            //}
+            //catch
+            //{
+            //    return RedirectToAction("Error");
+            //}
         }
 
         // GET: First/Delete/5
         public ActionResult Delete(int id)
         {
-            int i = 0;
-            foreach (Employee emp in employees)
-            {
-                if (emp.ID.Equals(id))
-                {
-                    employees.RemoveAt(i);
-                    return RedirectToAction("Details");
-                }
-                i++;
-            }
+            //int i = 0;
+            //foreach (Employee emp in employees)
+            //{
+            //    if (emp.ID.Equals(id))
+            //    {
+            //        employees.RemoveAt(i);
+            //        return RedirectToAction("Details");
+            //    }
+            //    i++;
+            //}
             return RedirectToAction("Error");
         }
     }
