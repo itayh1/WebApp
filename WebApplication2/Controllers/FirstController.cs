@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication2;
+using Newtonsoft.Json;
 
 namespace WebApplication2
 {
@@ -32,7 +33,6 @@ namespace WebApplication2
             return View(configModel);
         }
 
-
         [HttpPost]
         public ActionResult removeQuery(string handler)
         {
@@ -44,8 +44,8 @@ namespace WebApplication2
         public void handlerRemoved(string handler)
         {
             string[] args = { handler };
-            CommandRecievedEventArgs msg = new CommandRecievedEventArgs((int)CommandEnum.CloseHandler, args);
-            ClientSingleton.Instance.sendmessage(message1.ToJSON());
+            CommandRecievedEventArgs msg = new CommandRecievedEventArgs((int)CommandEnum.CloseCommand, args, string.Empty);
+            ClientConn.Instance.sendMessage(JsonConvert.SerializeObject(msg));
         }
 
         /// POST: First/Create
