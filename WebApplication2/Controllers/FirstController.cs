@@ -10,7 +10,7 @@ namespace WebApplication2
 {
     public class FirstController : Controller
     {
-       static MainPageModel mainPage= new MainPageModel();
+       static MainPageModel mainPage = new MainPageModel();
 
         // GET: First
         public ActionResult Index()

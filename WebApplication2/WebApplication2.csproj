@@ -152,6 +152,7 @@
     </Compile>
     <Compile Include="Models\ConfigModel.cs" />
     <Compile Include="Models\LogObject.cs" />
+    <Compile Include="Models\LogsModel.cs" />
     <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\MessageTypeEnum.cs" />
     <Compile Include="Models\Student.cs" />

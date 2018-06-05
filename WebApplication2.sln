@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{DF8A4E08-06D8-4E5D-8F37-A4AB82B39562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageService", "..\..\..\Source\Repos\ImageLogger\ImageService\ImageService\ImageService.csproj", "{7171CA72-1756-49E7-AFFD-96B588AE13CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{DF8A4E08-06D8-4E5D-8F37-A4AB82B39562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF8A4E08-06D8-4E5D-8F37-A4AB82B39562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF8A4E08-06D8-4E5D-8F37-A4AB82B39562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7171CA72-1756-49E7-AFFD-96B588AE13CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7171CA72-1756-49E7-AFFD-96B588AE13CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7171CA72-1756-49E7-AFFD-96B588AE13CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7171CA72-1756-49E7-AFFD-96B588AE13CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F60EF030-5770-441B-815E-E4FBC23E1412}
 	EndGlobalSection
 EndGlobal
