@@ -8,6 +8,7 @@ namespace WebApplication2
 {
     public class ThumbnailPic
     {
+        static int count = 0;
 
         public ThumbnailPic(string name, string year, string month, string path)
         {
@@ -15,6 +16,7 @@ namespace WebApplication2
             this.Year = year;
             this.Month = month;
             this.Path = path;
+            count += 1;
         }
 
         [Required]
