@@ -34,7 +34,7 @@ namespace WebApplication2
         }
 
         [HttpPost]
-        public ActionResult removeQuery(string handler)
+        public ActionResult engageHandler(string handler)
         {
             rmvHandlerModel.handler = handler;
             return View(rmvHandlerModel);

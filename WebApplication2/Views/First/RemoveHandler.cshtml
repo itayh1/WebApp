@@ -4,20 +4,18 @@
     ViewBag.Title = "RemoveHandler";
 }
 
-<h2>DO you want to remove this handler?</h2>
+<h2>Do you want to remove this handler?</h2>
 
 <input type="button" id="Ok" value="Ok" />
 <input type="button" id="Cancel" value="Cancel" onclick='window.location="Configurations";' />
 <div>
-    @Html.ActionLink("Back to prevoius ", "Configurations")
+    @Html.ActionLink("Back to prevoius page", "Configurations")
 </div>
 
 <script>
     $("#Ok").click(function () {
-        var input = {
-            handler: @Html.Raw(Json.Encode(Model.handler))
-        };
-        $.post("@Url.Action("handlerRemoved")",input , function () {}, "json");
-        window.location="Configurations";
+        $.post("@Url.Action("handlerRemoved")", function () {
+            window.location.href = "Configurations";
+        });
     });
 </script>
