@@ -12,6 +12,7 @@ namespace WebApplication2
         public ConfigModel()
         {
             ClientConn client = ClientConn.Instance;
+            client.OnCommandRecieved += this.OnCommandRecieved;
         }
 
         public void OnCommandRecieved(object sender, CommandRecievedEventArgs e)
@@ -35,6 +36,20 @@ namespace WebApplication2
             this.thumbnailSize = cd.thumbnailSize.ToString();
             this.handlers = new List<string>(cd.handlers);
         }
+
+        //public void Removehandler(string handler)
+        //{
+        //    try {
+        //        // update server handler was removed
+        //        CommandRecievedEventArgs command = new CommandRecievedEventArgs(
+        //            (int)CommandEnum.CloseCommand, new string[] { handler }, string.Empty);
+        //        var serializedData = JsonConvert.SerializeObject(command);
+        //        ClientConn.Instance.sendMessage(serializedData);
+        //    } catch (Exception ex) {
+        //        Console.WriteLine(ex.Message + ", cannot remove this handler");
+        //    }
+        //}
+
 
         [Required]
         [DataType(DataType.Text)]
