@@ -10,7 +10,7 @@ namespace WebApplication2
     public class PicsModel
     {
         private string outputDir;
-
+        //ctor
         public PicsModel()
         {
             this.outputDir = string.Empty;
