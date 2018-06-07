@@ -14,7 +14,7 @@ namespace WebApplication2
             try
             {
                 this.logs = new List<LogObject>() { new LogObject("Info", "asddfsgsff"),
-                new LogObject("Warning", "zxcvbbmmdfk;lvjfm")};
+                new LogObject("Warning", "abcdef")};
                 //ClientConn client = ClientConn.Instance;
                 //client.OnCommandRecieved += this.OnCommandRecieved;
             }

@@ -11,7 +11,7 @@ namespace WebApplication2
 {
     public class FirstController : Controller
     {
-       static MainPageModel mainPage= new MainPageModel();
+       static MainPageModel mainPageModel = new MainPageModel();
        public static ConfigModel configModel = new ConfigModel();
        public static RemoveHandlerModel rmvHandlerModel = new RemoveHandlerModel();
         public static LogsModel logsModel = new LogsModel();
@@ -25,7 +25,7 @@ namespace WebApplication2
         [HttpGet]
         public ActionResult AjaxView()
         {
-            return View(mainPage);
+            return View(mainPageModel);
         }
 
         [HttpGet]
@@ -47,33 +47,6 @@ namespace WebApplication2
             string[] args = { handler };
             CommandRecievedEventArgs msg = new CommandRecievedEventArgs((int)CommandEnum.CloseCommand, args, string.Empty);
             ClientConn.Instance.sendMessage(JsonConvert.SerializeObject(msg));
-        }
-
-        /// POST: First/Create
-        [HttpPost]
-        public ActionResult Create(Student st)
-        {
-            //try
-            //{
-            //    employees.Add(emp);
-
-            //    return RedirectToAction("Details");
-            //}
-            //catch
-            //{
-            return View();
-            //}
-        }
-
-        // GET: First/Edit/5
-        public ActionResult Edit(int id)
-        {
-            //foreach (Employee emp in employees) {
-            //    if (emp.ID.Equals(id)) { 
-            //        return View(emp);
-            //    }
-            //}
-            return View("Error");
         }
 
         // POST: First/Edit/5

@@ -10,8 +10,9 @@ namespace WebApplication2
     {
         public MainPageModel()
         {
-            this.isConnected = "No";
-            this.numOfImages = 0;
+            ClientConn client = ClientConn.Instance;
+            this.isConnected = client.Connected.ToString();
+            this.numOfImages = ThumbnailPic.count;
         }
 
         [Display(Name = "students")]
