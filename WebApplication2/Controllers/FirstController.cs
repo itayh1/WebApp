@@ -14,6 +14,7 @@ namespace WebApplication2
        static MainPageModel mainPage= new MainPageModel();
        public static ConfigModel configModel = new ConfigModel();
        public static RemoveHandlerModel rmvHandlerModel = new RemoveHandlerModel();
+    
 
         // GET: First
         public ActionResult Index()
