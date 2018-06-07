@@ -3,11 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace WebApplication2
 {
     public class ConfigModel
     {
+        public ConfigModel()
+        {
+            ClientConn client = ClientConn.Instance;
+        }
+
+        public void OnCommandRecieved(object sender, CommandRecievedEventArgs e)
+        {
+            if (e.CommandID == (int)CommandEnum.GetConfigCommand)
+            {
+                this.SetSettings(e);
+            }
+            //else if (e.CommandID == (int)CommandEnum.CloseCommand)
+            //{
+            //    this.Removehandler(e.Args[0]);
+            //}
+        }
+
+        private void SetSettings(CommandRecievedEventArgs e)
+        {
+            ConfigurationData cd = JsonConvert.DeserializeObject<ConfigurationData>(e.Args[0]);
+            this.outputDir = cd.outputDir;
+            this.logName = cd.logName;
+            this.sourceName = cd.sourceName;
+            this.thumbnailSize = cd.thumbnailSize.ToString();
+            this.handlers = new List<string>(cd.handlers);
+        }
+
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "outputDir")]

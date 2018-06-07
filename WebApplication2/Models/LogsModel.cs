@@ -13,8 +13,10 @@ namespace WebApplication2
         {
             try
             {
-                ClientConn client = ClientConn.Instance;
-                client.OnCommandRecieved += this.OnCommandRecieved;
+                this.logs = new List<LogObject>() { new LogObject("Info", "asddfsgsff"),
+                new LogObject("Warning", "zxcvbbmmdfk;lvjfm")};
+                //ClientConn client = ClientConn.Instance;
+                //client.OnCommandRecieved += this.OnCommandRecieved;
             }
             catch (Exception ex)
             {
@@ -42,6 +44,17 @@ namespace WebApplication2
             {
 
             }
+        }
+
+        public List<LogObject> filter(string st)
+        {
+            List<LogObject> newList = new List<LogObject>();
+            foreach (LogObject log in this.logs)
+            {
+                if (log.Type == st)
+                    newList.Add(log);
+            }
+            return newList;
         }
 
         [Display(Name = "logs")]
