@@ -14,7 +14,7 @@ namespace WebApplication2
        static MainPageModel mainPage= new MainPageModel();
        public static ConfigModel configModel = new ConfigModel();
        public static RemoveHandlerModel rmvHandlerModel = new RemoveHandlerModel();
-    
+        public static LogsModel logsModel = new LogsModel();
 
         // GET: First
         public ActionResult Index()
@@ -78,41 +78,12 @@ namespace WebApplication2
 
         // POST: First/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Student st)
+        public ActionResult Logs(FormCollection frm)
         {
-            //try
-            //{
-            //    foreach (Employee emp in employees)
-            //    {
-            //        if (emp.ID.Equals(id))
-            //        {
-            //            emp.copy(empT);
-            //            return RedirectToAction("Index");
-            //        }
-            //    }
-
-            return RedirectToAction("Index");
-            //}
-            //catch
-            //{
-            //    return RedirectToAction("Error");
-            //}
+            string type = frm["filter"].ToString();
+            List<LogObject> filtered = logsModel.filter(type);
+            return View(filtered);
         }
-
-        // GET: First/Delete/5
-        public ActionResult Delete(int id)
-        {
-            //int i = 0;
-            //foreach (Employee emp in employees)
-            //{
-            //    if (emp.ID.Equals(id))
-            //    {
-            //        employees.RemoveAt(i);
-            //        return RedirectToAction("Details");
-            //    }
-            //    i++;
-            //}
-            return RedirectToAction("Error");
-        }
+        
     }
 }

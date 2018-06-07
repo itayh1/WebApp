@@ -16,7 +16,7 @@ namespace WebApplication2
         public LogObject(string type, string msg)
         {
             Type = type.ToString();
-            Messgae = msg;
+            Message = msg;
         }
 
         [Required]
@@ -25,7 +25,7 @@ namespace WebApplication2
         public string Type { get; set; }
         [Required]
         [DataType(DataType.Text)]
-        [Display(Name = "Messgae")]
-        public string Messgae { get; set; }
+        [Display(Name = "Message")]
+        public string Message { get; set; }
     }
 }

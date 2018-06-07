@@ -13,6 +13,7 @@ namespace WebApplication2
 
         public PicsModel()
         {
+            this.outputDir = string.Empty;
             thumbnails = new List<ThumbnailPic>();
             ClientConn client = ClientConn.Instance;
             client.OnCommandRecieved += this.OnCommandRecieved;
@@ -27,7 +28,14 @@ namespace WebApplication2
 
         private void setPics()
         {
+            try
+            {
+                if (this.outputDir.Equals(string.Empty)) return;
+            }
+            catch (Exception e)
+            {
 
+            }
         }
 
         [Display(Name = "thumbnails")]
