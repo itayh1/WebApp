@@ -13,8 +13,8 @@ namespace WebApplication2
         {
             try
             {
-                this.logs = new List<LogObject>() { new LogObject("Info", "asddfsgsff"),
-                new LogObject("Warning", "abcdef")};
+                this.logs = new List<LogObject>() { new LogObject(MessageTypeEnum.INFO.ToString(), "asddfsgsff"),
+                new LogObject(MessageTypeEnum.WARNING.ToString(), "abcdef")};
                 //ClientConn client = ClientConn.Instance;
                 //client.OnCommandRecieved += this.OnCommandRecieved;
             }
