@@ -49,7 +49,7 @@ namespace WebApplication2
                 this.handlers.Remove(handler);
             }
             // update page handler has removed
-            this.manualResetEvent.Set();
+           // this.manualResetEvent.Set();
         }
 
 

@@ -15,8 +15,8 @@ namespace WebApplication2
             {
                 this.logs = new List<LogObject>() { new LogObject(MessageTypeEnum.INFO.ToString(), "asddfsgsff"),
                 new LogObject(MessageTypeEnum.WARNING.ToString(), "abcdef")};
-                //ClientConn client = ClientConn.Instance;
-                //client.OnCommandRecieved += this.OnCommandRecieved;
+                ClientConn client = ClientConn.Instance;
+                client.OnCommandRecieved += this.OnCommandRecieved;
             }
             catch (Exception ex)
             {
@@ -42,7 +42,7 @@ namespace WebApplication2
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
         }
 

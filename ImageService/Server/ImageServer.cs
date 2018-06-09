@@ -32,6 +32,7 @@ namespace ImageService.Server
             this.handlers = new List<IDirectoryHandler>();
             this.communicator = com;
             this.communicator.OnCommandRecieved += this.OnCommandRecieved;
+            this.m_logging.MessageRecieved += this.OnMessageRecieved;
             this.setHandlers(com.Configurations.Handlers.ToArray<string>());
         }
 
@@ -63,17 +64,19 @@ namespace ImageService.Server
          */
         public void OnCommandRecieved(object sender, CommandRecievedEventArgs e)
         {
+            Console.WriteLine(e.Args[0]);
             bool res;
             // remove ommand handler
             if (e.CommandID == (int)CommandEnum.CloseCommand)
             {
                 this.OnClosed(e.Args[0]);
-
             }
             // addFile command
+
             else
-            {
+            { 
                 string msg = this.m_controller.ExecuteCommand(e.CommandID, e.Args, out res);
+                if (msg.Contains("File missing")) return;
                 MessageTypeEnum typeEnum;
                 if (res)
                 {
@@ -85,9 +88,16 @@ namespace ImageService.Server
                     typeEnum = MessageTypeEnum.FAIL;
                     this.m_logging.Log(msg, typeEnum);
                 }
-                this.BuildLogAndSendCommand(msg, typeEnum.ToString());
+                //this.BuildLogAndSendCommand(msg, typeEnum.ToString());
             }
         }
+
+
+        public void OnMessageRecieved(object sender, MessageRecievedEventArgs e)
+        {
+            this.BuildLogAndSendCommand(e.Message, e.Status.ToString());
+        }
+
 
         /*
         * The function updates the logger of close action and stops watcher
@@ -105,7 +115,7 @@ namespace ImageService.Server
                         // log creation and update all clients
                         message += "handler: " + path + " was closed";
                         string type = MessageTypeEnum.INFO.ToString();
-                        BuildLogAndSendCommand(message, type);
+                        //BuildLogAndSendCommand(message, type);
                         this.m_logging.Log(message, MessageTypeEnum.INFO);
 
                         // remove handler

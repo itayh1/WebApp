@@ -42,15 +42,16 @@ namespace WebApplication2
             return View(rmvHandlerModel);
         }
 
-        [HttpPost]
-        public void handlerDeleted(string handler)
+        //[HttpPost]
+        public ActionResult HandlerDeleted(string handler)
         {
-            configModel.manualResetEvent.Reset();
+           // configModel.manualResetEvent.Reset();
             // update server handler was removed
             CommandRecievedEventArgs msg = new CommandRecievedEventArgs((int)CommandEnum.CloseCommand, new string[] { handler }, string.Empty);
             ClientConn.Instance.sendMessage(JsonConvert.SerializeObject(msg));
             // wait for response from server
-            configModel.manualResetEvent.WaitOne();
+            //configModel.manualResetEvent.WaitOne();
+            return RedirectToActionPermanent("Configurations");
         }
 
         [HttpGet]
