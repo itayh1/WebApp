@@ -56,7 +56,8 @@ namespace WebApplication2
             }
             return newList;
         }
-
+        [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "logs")]
         public List<LogObject> logs;
     }

@@ -15,7 +15,7 @@
     @foreach (var path in Model.handlers)
     {
         <li>
-            @Html.ActionLink(path, "engageHandler", new { handler = path })
+            @Html.ActionLink(path, "RemoveHandler", new { handler = path })
         </li>
     }
 </lu>

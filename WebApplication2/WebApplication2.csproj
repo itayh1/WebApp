@@ -186,7 +186,7 @@
     <Content Include="scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Views\First\Configurations.cshtml" />
     <Content Include="Views\First\RemoveHandler.cshtml" />
-    <Content Include="Views\First\LogsView.cshtml" />
+    <Content Include="Views\First\Logs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

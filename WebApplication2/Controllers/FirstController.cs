@@ -35,7 +35,7 @@ namespace WebApplication2
         }
 
         [HttpPost]
-        public ActionResult engageHandler(string handler)
+        public ActionResult RemoveHandler(string handler)
         {
             rmvHandlerModel.handler = handler;
             return View(rmvHandlerModel);
@@ -49,6 +49,11 @@ namespace WebApplication2
             ClientConn.Instance.sendMessage(JsonConvert.SerializeObject(msg));
         }
 
+        [HttpGet]
+        public ActionResult Logs()
+        {
+            return View(logsModel);
+        }
         // POST: First/Edit/5
         [HttpPost]
         public ActionResult Logs(FormCollection frm)

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LogObject>
+﻿@model LogsModel
 
 @{
     ViewBag.Title = "Logs";
@@ -10,7 +10,7 @@
     @using (Html.BeginForm("Logs", "Logs", FormMethod.Post))
     {
         @Html.DropDownList("filter",
-                new SelectList(Enum.GetValues(typeof(Type))),
+                new SelectList(Enum.GetValues(typeof(MessageTypeEnum))),
                 "choose type",
                 new { @class = "form-control" })
         <input type="submit" id="submitId" value="Filter" class="btn-info" />
@@ -21,14 +21,14 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
+            Type
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Message)
+            Message
         </th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.logs)
     {
         <tr>
             <td>
