@@ -8,14 +8,14 @@
 
 <input type="button" id="Ok" value="Ok" />
 <input type="button" id="Cancel" value="Cancel" onclick='window.location="Configurations";' />
-<div>
-    @Html.ActionLink("Back to prevoius page", "Configurations")
-</div>
 
 <script>
-    $("#Ok").click(function () {
-        $.post("@Url.Action("handlerRemoved")", function () {
-            window.location.href = "Configurations";
-        });
+    $("#OK").click(function () {
+        var input = {
+            handler: @Html.Raw(Json.Encode(Model.handler))
+        };
+        $(this).attr("disabled", "disabled");
+        $.post("@Url.Action("handlerDeleted")",input , function () {}, "json");
+        window.location="Configurations";
     });
 </script>

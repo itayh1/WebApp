@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Threading;
 using Newtonsoft.Json;
 
 namespace WebApplication2
 {
     public class ConfigModel
     {
+        public ManualResetEvent manualResetEvent = new ManualResetEvent(false);
+        public static bool handlerHasDeleted = false; 
+
         public ConfigModel()
         {
             ClientConn client = ClientConn.Instance;
@@ -21,10 +25,10 @@ namespace WebApplication2
             {
                 this.SetSettings(e);
             }
-            //else if (e.CommandID == (int)CommandEnum.CloseCommand)
-            //{
-            //    this.Removehandler(e.Args[0]);
-            //}
+            else if (e.CommandID == (int)CommandEnum.CloseCommand)
+            {
+                this.Remove(e.Args[0]);
+            }
         }
 
         private void SetSettings(CommandRecievedEventArgs e)
@@ -37,18 +41,16 @@ namespace WebApplication2
             this.handlers = new List<string>(cd.handlers);
         }
 
-        //public void Removehandler(string handler)
-        //{
-        //    try {
-        //        // update server handler was removed
-        //        CommandRecievedEventArgs command = new CommandRecievedEventArgs(
-        //            (int)CommandEnum.CloseCommand, new string[] { handler }, string.Empty);
-        //        var serializedData = JsonConvert.SerializeObject(command);
-        //        ClientConn.Instance.sendMessage(serializedData);
-        //    } catch (Exception ex) {
-        //        Console.WriteLine(ex.Message + ", cannot remove this handler");
-        //    }
-        //}
+        public void Remove(string handler)
+        {
+            // delete from configModel
+            if (this.handlers.Contains(handler))
+            {
+                this.handlers.Remove(handler);
+            }
+            // update page handler has removed
+            this.manualResetEvent.Set();
+        }
 
 
         [Required]
@@ -71,6 +73,8 @@ namespace WebApplication2
         [Display(Name = "thumbnailSize")]
         public string thumbnailSize;
 
+        [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "handlers")]
         public List<string> handlers = new List<string> { "h1", "h2", "h3"};
     }

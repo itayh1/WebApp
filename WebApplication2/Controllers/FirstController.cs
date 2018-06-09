@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading;
 using WebApplication2;
 using Newtonsoft.Json;
 
@@ -14,7 +15,7 @@ namespace WebApplication2
        static MainPageModel mainPageModel = new MainPageModel();
        public static ConfigModel configModel = new ConfigModel();
        public static RemoveHandlerModel rmvHandlerModel = new RemoveHandlerModel();
-        public static LogsModel logsModel = new LogsModel();
+       public static LogsModel logsModel = new LogsModel();
 
         // GET: First
         public ActionResult Index()
@@ -34,7 +35,7 @@ namespace WebApplication2
             return View(configModel);
         }
 
-        [HttpPost]
+        //[HttpPost]
         public ActionResult RemoveHandler(string handler)
         {
             rmvHandlerModel.handler = handler;
@@ -42,11 +43,14 @@ namespace WebApplication2
         }
 
         [HttpPost]
-        public void handlerRemoved(string handler)
+        public void handlerDeleted(string handler)
         {
-            string[] args = { handler };
-            CommandRecievedEventArgs msg = new CommandRecievedEventArgs((int)CommandEnum.CloseCommand, args, string.Empty);
+            configModel.manualResetEvent.Reset();
+            // update server handler was removed
+            CommandRecievedEventArgs msg = new CommandRecievedEventArgs((int)CommandEnum.CloseCommand, new string[] { handler }, string.Empty);
             ClientConn.Instance.sendMessage(JsonConvert.SerializeObject(msg));
+            // wait for response from server
+            configModel.manualResetEvent.WaitOne();
         }
 
         [HttpGet]
@@ -60,7 +64,9 @@ namespace WebApplication2
         {
             string type = frm["filter"].ToString();
             List<LogObject> filtered = logsModel.filter(type);
-            return View(filtered);
+            LogsModel tempModel = new LogsModel();
+            tempModel.logs = filtered;
+            return View(tempModel);
         }
         
     }
