@@ -1,0 +1,23 @@
+﻿@model Thumbnail
+@{
+    ViewBag.Title = "ThumbnailDelete";
+}
+
+<h2>ThumbnailDelete</h2>
+
+<h2>Do you want to remove this thumbnail?</h2>
+
+<center>
+    <div class="thumbnail">
+        <img src="@Url.Content(Model.ThumbnailSemiPath)" alt="" class="circular-image" width="240" height="200">
+        <div class="caption">
+            <h4>@Model.Name</h4>
+            <p>
+                <a href="@Url.Action("Photos", new { path = Model.PhotoPath })" id="btnView" class="btn btn-info btn-xs" role="button">Cancel</a>
+                <a href="@Url.Action("DeleteAfterViewed", new { path = Model.PhotoPath })" id="btnDelete" class="btn btn-danger btn-xs" role="button">Ok</a>
+            </p>
+        </div>
+    </div>
+</center>
+
+

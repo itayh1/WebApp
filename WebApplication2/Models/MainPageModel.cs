@@ -12,7 +12,7 @@ namespace WebApplication2
         {
             ClientConn client = ClientConn.Instance;
             this.isConnected = client.Connected.ToString();
-            this.numOfImages = ThumbnailPic.count;
+            this.numOfImages = Thumbnail.count;
         }
 
         [Display(Name = "students")]

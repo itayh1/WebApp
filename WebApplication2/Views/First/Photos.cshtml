@@ -1,0 +1,33 @@
+﻿
+@model PhotosModel
+@{
+
+    ViewBag.Title = "Photos";
+}
+
+    <h2> Photos </h2>
+
+    <div class="container" id="tourpackages-carousel">
+
+        <div class="row">
+            @foreach (var item in Model.Thumbnails)
+            {
+                <div class="col-xs-18 col-sm-6 col-md-3">
+
+                    <div class="thumbnail">
+                        <img src="@Url.Content(item.ThumbnailSemiPath)" alt="" class="circular-image" width="242" height="200">
+                        <div class="caption">
+                            <h4>@item.Name</h4>
+                            <p>Year: @item.Year Month: @item.Month</p>
+                            <p>
+                                <a href="@Url.Action("ThumbnailView", new { path = item.PhotoPath })" id="btnView" class="btn btn-info btn-xs" role="button">View</a>
+                                <a href="@Url.Action("ThumbnailDelete", new { path = item.PhotoPath })" id="btnDelete" class="btn btn-danger btn-xs" role="button">Delete</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+

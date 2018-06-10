@@ -141,8 +141,6 @@
     <Content Include="scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\First\Create.cshtml" />
-    <Content Include="Views\First\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -160,10 +158,10 @@
     <Compile Include="Models\MainPageModel.cs" />
     <Compile Include="Models\MessageTypeEnum.cs" />
     <Compile Include="Models\RemoveHandlerModel.cs" />
-    <Compile Include="Models\PicsModel.cs" />
+    <Compile Include="Models\PhotosModel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\ThumbnailPic.cs" />
+    <Compile Include="Models\Thumbnail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,19 +172,19 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\First\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\First\Edit.cshtml" />
-    <Content Include="Views\First\Error.cshtml" />
     <Content Include="Views\First\AjaxView.cshtml" />
     <Content Include="scripts\jquery-3.0.0.min.map" />
     <Content Include="scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Views\First\Configurations.cshtml" />
     <Content Include="Views\First\RemoveHandler.cshtml" />
     <Content Include="Views\First\Logs.cshtml" />
+    <Content Include="Views\First\Photos.cshtml" />
+    <Content Include="Views\First\ThumbnailView.cshtml" />
+    <Content Include="Views\First\ThumbnailDelete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
