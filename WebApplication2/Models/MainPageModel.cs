@@ -25,6 +25,7 @@ namespace WebApplication2
         [Display(Name = "numOfImages")]
         public int numOfImages;
 
+
         [Display(Name = "isConnected")]
         public string isConnected;
     }

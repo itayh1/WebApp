@@ -13,12 +13,9 @@ namespace WebApplication2
     {      
         public PhotosModel() {
 
-            OutputDir = @"C:\temp\output";// string.Empty;
+            OutputDir = string.Empty;
             Thumbnails = new List<Thumbnail>();
-            SetPhotos();
-            //ClientConn client = ClientConn.Instance;
         }
-
 
         public void SetPhotos() {
             try {

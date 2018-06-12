@@ -8,11 +8,7 @@ namespace WebApplication2
 {
     public class LogObject
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="type">type</param>
-        /// <param name="msg">message</param>
+        
         public LogObject(string type, string msg)
         {
             Type = type.ToString();

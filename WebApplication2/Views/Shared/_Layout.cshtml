@@ -20,17 +20,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Main Page", "AjaxView", "First", new { area = "" }, new { @class = "navbar-brand" })
+               
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "First")</li>
-        <li>@Html.ActionLink("Create", "Create", "First")</li>
-        <li>@Html.ActionLink("Details", "Details", "First")</li>
-        <li>@Html.ActionLink("AjaxView", "AjaxView", "First")</li>*@
-                    <li>@Html.ActionLink("Configurations", "Configurations", "First")</li>
-                    <li>@Html.ActionLink("Photos", "Photos", "First")</li>
-                    <li>@Html.ActionLink("Logs", "Logs", "First")</li>
+                    <li style="margin-right: 30px">@Html.ActionLink("Main Page", "AjaxView", "First", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li style="margin-right: 30px">@Html.ActionLink("Configurations", "Configurations", "First", new { area = "" }, new { @class = "navbar-brand" })</listyle="margin-right:>
+                    <li style="margin-right: 30px">@Html.ActionLink("Photos", "Photos", "First", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li style="margin-right: 30px">@Html.ActionLink("Logs", "Logs", "First", new { area = "" }, new { @class = "navbar-brand" })</li>
                 </ul>
             </div>
         </div>

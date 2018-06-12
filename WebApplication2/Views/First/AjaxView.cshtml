@@ -1,16 +1,15 @@
 ﻿@model MainPageModel
 
 @{
-    ViewBag.Title = "AjaxView";
+    ViewBag.Title = "Main Page";
 }
 
-<h2>AjaxView</h2>
-
-<h2>Connection Status: @Model.isConnected</h2>
-<h2>There are @Model.numOfImages images</h2>
-
+<br/>
+<h4>Connection Status: @Model.isConnected</h4>
+<h4>There are @Model.numOfImages images</h4>
+<br/>
 <div>
-    <h2>Students: </h2>
+    <h4>Students: </h4>
     <table class="table">
         <tr>
             <th>

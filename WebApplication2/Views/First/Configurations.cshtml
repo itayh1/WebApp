@@ -4,17 +4,18 @@
     ViewBag.Title = "Configurations";
 }
 
-<h2>Config</h2>
-
-<p>Source name : @Model.sourceName</p>
-<p>Thumbnail size : @Model.thumbnailSize</p>
-<p>Output dir : @Model.outputDir</p>
-<p>Log name : @Model.logName</p>
-
-<lu>
+<br/>
+<h4 >Source name : </h4><h5> @Model.sourceName</h5>
+<h4 >Thumbnail size : </h4><h5> @Model.thumbnailSize</h5>
+<h4>Thumbnail size : </h4><h5> @Model.thumbnailSize</h5>
+<h4 >Output dir : </h4><h5> @Model.outputDir</h5>
+<h4 >Log name : </h4><h5> @Model.logName</h5>
+<br/>
+<h4>Handlers: </h4>
+<lu class="list-group">
     @foreach (var path in Model.handlers)
     {
-        <li>
+        <li class="list-group-item">
             @Html.ActionLink(path, "RemoveHandler", new { handler = path })
         </li>
     }
