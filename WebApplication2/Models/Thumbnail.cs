@@ -25,7 +25,7 @@ namespace WebApplication2
                 Month = Path.GetFileNameWithoutExtension(Path.GetDirectoryName(ThumbnailPath));
                 Year = Path.GetFileNameWithoutExtension(Path.GetDirectoryName((Path.GetDirectoryName(ThumbnailPath))));
 
-                // creation of semi pathes from the original path
+                //creation of semi pathes from the original path
                 int semiPathLength = ThumbnailPath.Length;
                 int startSemiPath = ThumbnailPath.IndexOf("output");
                 string dir = ThumbnailPath.Substring(startSemiPath, semiPathLength - startSemiPath);

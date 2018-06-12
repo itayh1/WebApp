@@ -63,7 +63,7 @@ namespace WebApplication2
 
         public ActionResult Photos() {
             photosModel.Thumbnails.Clear();       
-            photosModel.OutputDir = configModel.outputDir;
+            //photosModel.OutputDir = configModel.outputDir;
             photosModel.SetPhotos();
             return View(photosModel);
         }
